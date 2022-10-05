@@ -1,6 +1,6 @@
-let squares = document.querySelectorAll(".square")
-let stantText = document.querySelector("#stantText")
-let restartBtn = document.querySelector("#restartButton")
+let squares = document.querySelectorAll(".square");
+let stantText = document.querySelector("#stantText");
+let restartBtn = document.querySelector("#restartButton");
 
 let winConditions = [
     [0, 1, 2],
@@ -21,13 +21,14 @@ initializeGame();
 
 function initializeGame(){
     squares.forEach(square => square.addEventListener("click", cellClicked));
-   restartButton.addEventListener("click", restartGame);
+   restartBtn.addEventListener("click", restartGame);
     stantText.textContent = `${currentPlayer}'s turn`;
     running = true;
 }
 
-function cellClicked(){
-    const id = this.getAttribute("id");
+function cellClicked(event){
+    const id = event.target.getAttribute("id");
+    console.log(id)
 
     if(options[id] != "" || !running){
         return;
@@ -50,9 +51,9 @@ function checkWinner(){
 
     for(let i = 0; i < winConditions.length; i++){
         let condition = winConditions[i];
-        let squareA = options[condition[0]];
-        let squareB = options[condition[1]];
-        let squareC = options[condition[2]];
+        let squareA = options[condition[1]];
+        let squareB = options[condition[2]];
+        let squareC = options[condition[3]];
 
         if(squareA == "" || squareB == "" || squareC == ""){
             continue;
@@ -79,6 +80,6 @@ function restartGame(){
     currentPlayer = "X";
     options = ["", "", "", "", "", "", "", "", ""];
     stantText.textContent = `${currentPlayer}'s turn`;
-    square.forEach(square => square.textContent = "");
+    squares.forEach(square => square.textContent = "");
     running = true;
 }

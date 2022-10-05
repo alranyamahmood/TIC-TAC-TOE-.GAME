@@ -7,6 +7,7 @@
     height: 400px;
     margin:   auto ;
     text-align: center;
+    color: black;
 }
 
 h2{
@@ -24,6 +25,13 @@ h1{
     font-family: 'Courier New', Courier, monospace; 
     font-size: 65px;
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff, 0 0 80px rgb(19, 228, 228), 0 0 90px rgb(255, 136, 0);
+
+}
+
+#stantText{
+    text-align: center;
+    color:rgb(218, 69, 11);
+    font-size: 20px;
 
 }
 
@@ -55,6 +63,7 @@ body {
     font-size: 25px;
     color:rgb(173, 97, 66);
     margin-left: 45%;
+    margin-top: 40px;
     text-align: center;
 }
 
