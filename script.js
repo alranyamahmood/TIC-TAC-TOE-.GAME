@@ -29,6 +29,8 @@ function initializeGame(){
 function cellClicked(event){
     const id = event.target.getAttribute("id");
     console.log(id)
+    // add element to id="cell1"
+    document.getElementById("cell1").innerHTML = "X";
 
     if(options[id] != "" || !running){
         return;
@@ -40,6 +42,7 @@ function cellClicked(event){
 function updateCell(square, index){
     options[index] = currentPlayer;
     square.textContent = currentPlayer;
+    
 }
 function changePlayer(){
     currentPlayer = (currentPlayer == "X") ? "O" : "X";
@@ -51,9 +54,9 @@ function checkWinner(){
 
     for(let i = 0; i < winConditions.length; i++){
         let condition = winConditions[i];
-        let squareA = options[condition[1]];
-        let squareB = options[condition[2]];
-        let squareC = options[condition[3]];
+        let squareA = options[condition[0]];
+        let squareB = options[condition[1]];
+        let squareC = options[condition[2]];
 
         if(squareA == "" || squareB == "" || squareC == ""){
             continue;
