@@ -30,7 +30,9 @@ function cellClicked(event){
     const id = event.target.getAttribute("id");
     console.log(id)
     // add element to id="cell1"
-    document.getElementById("cell1").innerHTML = "X";
+
+    //changed "cell1" to id && "X" to `${currentPlayer}`
+    document.getElementById(id).innerHTML = `${currentPlayer}`;
 
     if(options[id] != "" || !running){
         return;
@@ -39,6 +41,7 @@ function cellClicked(event){
   updateCell(this, id);
     checkWinner();
 }
+
 function updateCell(square, index){
     options[index] = currentPlayer;
     square.textContent = currentPlayer;
